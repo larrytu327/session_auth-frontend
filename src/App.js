@@ -7,18 +7,24 @@ import Register from './containers/Register';
 import Login from './containers/Login';
 import Dashboard from './containers/Dashboard';
 
+import { Provider } from 'react-redux'
+import store from './store';
+
 function App() {
     return (
-        <Router>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                </Routes>
-            </Layout>
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <Layout>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
+                    </Routes>
+                </Layout>
+            </Router>
+        </Provider>
+
     );
 }
 
